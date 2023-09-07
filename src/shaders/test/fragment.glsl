@@ -7,7 +7,7 @@ void main()
     float intensityX = abs((vUv.x - 0.5) * strength);
     float intensityY = abs((vUv.y - 0.5) * strength);
 
-    float intensity = min(intensityX, intensityY);
+    float intensity = max(intensityX, intensityY);
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }
