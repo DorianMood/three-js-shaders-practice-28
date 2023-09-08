@@ -18,15 +18,7 @@ vec2 rotate(vec2 uv, float rotation, vec2 mid)
 void main()
 {
 
-    vec2 rotatedUv = rotate(vUv, PI / 4.0, vec2(0.5));
-
-    vec2 squashedUvX = vec2(rotatedUv.x * 0.2 + 0.4, rotatedUv.y);
-    float intensityX = 0.01 / distance(squashedUvX, vec2(0.5));
-
-    vec2 squashedUvY = vec2(rotatedUv.x, rotatedUv.y * 0.2 + 0.4);
-    float intensityY = 0.01 / distance(squashedUvY, vec2(0.5));
-
-    float intensity = intensityX * intensityY;
+    float intensity = step(0.2, distance(vUv, vec2(0.5)));
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }
