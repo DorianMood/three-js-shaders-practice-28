@@ -7,8 +7,13 @@ float random(vec2 st)
 
 void main()
 {
-    vec2 squashedUv = vec2(vUv.x * 0.2 + 0.4, vUv.y);
-    float intensity = 0.02 / distance(squashedUv, vec2(0.5));
+    vec2 squashedUvX = vec2(vUv.x * 0.2 + 0.4, vUv.y);
+    float intensityX = 0.01 / distance(squashedUvX, vec2(0.5));
+
+    vec2 squashedUvY = vec2(vUv.x, vUv.y * 0.2 + 0.4);
+    float intensityY = 0.01 / distance(squashedUvY, vec2(0.5));
+
+    float intensity = intensityX * intensityY;
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }
