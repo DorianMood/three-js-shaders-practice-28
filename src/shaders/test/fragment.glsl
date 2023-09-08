@@ -60,7 +60,10 @@ float cnoise(vec2 P){
 
 void main()
 {
-    float intensity = sin(cnoise(vUv * 10.0) * 20.0);
+    float intensity = step(0.6, sin(cnoise(vUv * 10.0) * 20.0));
+    vec3 black = vec3(0.0);
+    vec3 uv = vec3(vUv, 1.0);
+    
 
-    gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
+    gl_FragColor = vec4(mix(black, uv, intensity), 1.0);
 }
