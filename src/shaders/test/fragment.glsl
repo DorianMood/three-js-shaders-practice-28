@@ -21,7 +21,11 @@ void main()
     angle = angle / PI / 2.0 + 0.5;
     angle *= 20.0;
     angle = sin(angle * 5.0);
-    float intensity = angle;
+  
+    float radius = 0.25 + angle * 0.15;
+    float circle = 1.0 - step(0.01, abs(distance(vUv, vec2(0.5)) - radius));
+
+    float intensity = circle;
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }
