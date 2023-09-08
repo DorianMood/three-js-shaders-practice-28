@@ -9,7 +9,7 @@ void main()
 {
     float intensity = random(
         vec2(floor(vUv.x * 10.0) / 10.0,
-        floor(vUv.y * 10.0) / 10.0)
+        floor(vUv.y * 10.0 + 0.5) / 10.0)
     );
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
