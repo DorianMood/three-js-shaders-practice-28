@@ -7,7 +7,7 @@ float random(vec2 st)
 
 void main()
 {
-    float intensity = length(vUv);
+    float intensity = distance(vUv, vec2(0.5));
 
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }
